@@ -6,7 +6,7 @@ class ImageInput extends Component {
     const { cardImage, onInputChange } = this.props;
     return (
       <label htmlFor="cardImage">
-        <p>Image</p>
+        Image
         <input
           value={ cardImage }
           onChange={ onInputChange }
