@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
+import CardAttributes from './CardAttributes';
 
 class Form extends Component {
   render() {
@@ -8,6 +9,7 @@ class Form extends Component {
       <form>
         <Input />
         <TextArea />
+        <CardAttributes />
       </form>
     );
   }
