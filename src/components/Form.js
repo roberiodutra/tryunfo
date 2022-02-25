@@ -16,6 +16,12 @@ class Form extends Component {
         <ImageInput />
         <SelectInput />
         <TrunfoCheckBox />
+        <button
+          type="button"
+          data-testid="save-button"
+        >
+          Salvar
+        </button>
       </form>
     );
   }
