@@ -11,7 +11,7 @@ class SelectInput extends Component {
         <select
           value={ cardRarity }
           onChange={ onInputChange }
-          id={ cardRarity }
+          id="cardRarity"
           data-testid="rare-input"
         >
           {rarity.map((el, index) => (
