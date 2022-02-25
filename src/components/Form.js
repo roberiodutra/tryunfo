@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import TextArea from './TextArea';
 import CardAttributes from './CardAttributes';
@@ -8,30 +9,6 @@ import TrunfoCheckBox from './TrunfoCheckBox';
 import Button from './Button';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-    };
-
-    this.onInputChange = this.onInputChange.bind(this);
-  }
-
-  onInputChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
-  }
-
   render() {
     const {
       cardName,
@@ -42,40 +19,53 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-    } = this.state;
+      onInputChange,
+    } = this.props;
 
     return (
       <form>
         <Input
           cardName={ cardName }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <TextArea
           cardDescription={ cardDescription }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <CardAttributes
           cardAttr1={ cardAttr1 }
           cardAttr2={ cardAttr2 }
           cardAttr3={ cardAttr3 }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <ImageInput
           cardImage={ cardImage }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <SelectInput
           cardRare={ cardRare }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <TrunfoCheckBox
           cardTrunfo={ cardTrunfo }
-          onInputChange={ this.onInputChange }
+          onInputChange={ onInputChange }
         />
         <Button />
       </form>
     );
   }
 }
+
+Form.propTypes = {
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.number,
+  cardAttr2: PropTypes.number,
+  cardAttr3: PropTypes.number,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  onInputChange: PropTypes.func,
+}.isRequired;
 
 export default Form;
