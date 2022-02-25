@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 class SelectInput extends Component {
   render() {
     const rarity = ['normal', 'raro', 'muito raro'];
-    const { cardRarity, onInputChange } = this.props;
+    const { cardRare, onInputChange } = this.props;
     return (
       <label htmlFor="cardRarity">
         <p>Raridade</p>
         <select
-          value={ cardRarity }
+          value={ cardRare }
           onChange={ onInputChange }
           id="cardRarity"
           data-testid="rare-input"
@@ -23,7 +23,7 @@ class SelectInput extends Component {
 }
 
 SelectInput.propTypes = {
-  cardRarity: PropTypes.string,
+  cardRare: PropTypes.string,
   onInputChange: PropTypes.func,
 }.isRequired;
 

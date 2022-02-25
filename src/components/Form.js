@@ -5,6 +5,7 @@ import CardAttributes from './CardAttributes';
 import ImageInput from './ImageInput';
 import SelectInput from './SelectInput';
 import TrunfoCheckBox from './TrunfoCheckBox';
+import Button from './Button';
 
 class Form extends Component {
   render() {
@@ -16,12 +17,7 @@ class Form extends Component {
         <ImageInput />
         <SelectInput />
         <TrunfoCheckBox />
-        <button
-          type="button"
-          data-testid="save-button"
-        >
-          Salvar
-        </button>
+        <Button />
       </form>
     );
   }
