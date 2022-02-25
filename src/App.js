@@ -13,6 +13,8 @@ class App extends Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
+      hasTrunfo: false,
+      isSaveButtonDisabled: true,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -35,6 +37,8 @@ class App extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
     } = this.state;
 
     return (
@@ -49,7 +53,10 @@ class App extends Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+          hasTrunfo={ hasTrunfo }
+          isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
       </div>
     );

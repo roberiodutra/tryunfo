@@ -19,7 +19,9 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      isSaveButtonDisabled,
       onInputChange,
+      onSaveButtonClick,
     } = this.props;
 
     return (
@@ -50,7 +52,10 @@ class Form extends Component {
           cardTrunfo={ cardTrunfo }
           onInputChange={ onInputChange }
         />
-        <Button />
+        <Button
+          isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ onSaveButtonClick }
+        />
       </form>
     );
   }
@@ -66,6 +71,8 @@ Form.propTypes = {
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
   onInputChange: PropTypes.func,
+  isSaveButtonDisabled: PropTypes.bool,
+  onSaveButtonClick: PropTypes.func,
 }.isRequired;
 
 export default Form;
