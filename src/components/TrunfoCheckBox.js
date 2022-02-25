@@ -8,6 +8,7 @@ class TrunfoCheckBox extends Component {
       <label htmlFor="cardTrunfo">
         Super Trybe Trunfo
         <input
+          name="cardTrunfo"
           checked={ cardTrunfo }
           onChange={ onInputChange }
           id="cardTrunfo"

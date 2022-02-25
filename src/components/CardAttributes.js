@@ -10,6 +10,7 @@ class CardAttributes extends Component {
         <label key={ index } htmlFor={ `attr${index + 1}` }>
           {`Attr${index + 1}`}
           <input
+            name={ `cardAttr${index + 1}` }
             value={ el }
             onChange={ onInputChange }
             id={ `attr${index + 1}` }

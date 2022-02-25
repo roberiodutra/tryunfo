@@ -9,6 +9,7 @@ class SelectInput extends Component {
       <label htmlFor="cardRarity">
         <p>Raridade</p>
         <select
+          name="cardRare"
           value={ cardRare }
           onChange={ onInputChange }
           id="cardRarity"

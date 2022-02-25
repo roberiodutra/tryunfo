@@ -8,6 +8,7 @@ class Input extends Component {
       <label htmlFor="cardName">
         <p>Nome</p>
         <input
+          name="cardName"
           value={ cardName }
           onChange={ onInputChange }
           id="cardName"

@@ -8,6 +8,7 @@ class TextArea extends Component {
       <label htmlFor="cardDescription">
         <p>Descrição</p>
         <textarea
+          name="cardDescription"
           value={ cardDescription }
           onChange={ onInputChange }
           id="cardDescription"

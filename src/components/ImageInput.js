@@ -8,6 +8,7 @@ class ImageInput extends Component {
       <label htmlFor="cardImage">
         Image
         <input
+          name="cardImage"
           value={ cardImage }
           onChange={ onInputChange }
           id="cardImage"
