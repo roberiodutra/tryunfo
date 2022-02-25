@@ -6,13 +6,13 @@ class SelectInput extends Component {
     const rarity = ['normal', 'raro', 'muito raro'];
     const { cardRare, onInputChange } = this.props;
     return (
-      <label htmlFor="cardRarity">
+      <label htmlFor="cardRare">
         <p>Raridade</p>
         <select
           name="cardRare"
           value={ cardRare }
           onChange={ onInputChange }
-          id="cardRarity"
+          id="cardRare"
           data-testid="rare-input"
         >
           {rarity.map((el, index) => (

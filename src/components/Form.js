@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
+import InputName from './InputName';
 import TextArea from './TextArea';
 import CardAttributes from './CardAttributes';
 import ImageInput from './ImageInput';
@@ -24,7 +24,7 @@ class Form extends Component {
 
     return (
       <form>
-        <Input
+        <InputName
           cardName={ cardName }
           onInputChange={ onInputChange }
         />
