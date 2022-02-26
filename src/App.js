@@ -41,9 +41,8 @@ class App extends Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      hasTrunfo: state.cardTrunfo !== true
-        ? state.cardList.some((item) => item.cardTrunfo === true)
-        : true,
+      hasTrunfo: state.cardTrunfo === true
+        || state.cardList.some((item) => item.cardTrunfo === true),
       cardList: [...state.cardList,
         {
           cardName: state.cardName,
