@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   onSaveButtonClick() {
-    this.setState((prevState) => ({
+    this.setState((state) => ({
       cardName: '',
       cardDescription: '',
       cardAttr1: 0,
@@ -41,19 +41,19 @@ class App extends Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      hasTrunfo: prevState.cardTrunfo !== true
-        ? prevState.cardList.some((item) => item.cardTrunfo === true)
+      hasTrunfo: state.cardTrunfo !== true
+        ? state.cardList.some((item) => item.cardTrunfo === true)
         : true,
-      cardList: [...prevState.cardList,
+      cardList: [...state.cardList,
         {
-          cardName: prevState.cardName,
-          cardDescription: prevState.cardDescription,
-          cardAttr1: prevState.cardAttr1,
-          cardAttr2: prevState.cardAttr2,
-          cardAttr3: prevState.cardAttr3,
-          cardImage: prevState.cardImage,
-          cardRare: prevState.cardRare,
-          cardTrunfo: prevState.cardTrunfo,
+          cardName: state.cardName,
+          cardDescription: state.cardDescription,
+          cardAttr1: state.cardAttr1,
+          cardAttr2: state.cardAttr2,
+          cardAttr3: state.cardAttr3,
+          cardImage: state.cardImage,
+          cardRare: state.cardRare,
+          cardTrunfo: state.cardTrunfo,
         }],
     }));
   }
