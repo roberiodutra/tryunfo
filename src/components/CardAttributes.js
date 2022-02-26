@@ -24,9 +24,9 @@ class CardAttributes extends Component {
 }
 
 CardAttributes.propTypes = {
-  cardAttr1: PropTypes.number,
-  cardAttr2: PropTypes.number,
-  cardAttr3: PropTypes.number,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
   onInputChange: PropTypes.func,
 }.isRequired;
 
