@@ -19,13 +19,45 @@ class App extends Component {
     };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   onInputChange({ target: { name, value, type, checked } }) {
     const inputValue = type === 'checkbox' ? checked : value;
     this.setState({
       [name]: inputValue,
-    });
+    }, this.validate);
+  }
+
+  validate() {
+    const MIN = 0;
+    const MAX = 90;
+    const SUM = 210;
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+    } = this.state;
+
+    const fields = [cardName, cardDescription, cardImage];
+    const emptyFields = fields.every((field) => field !== '');
+
+    const attrValues = [cardAttr1, cardAttr2, cardAttr3];
+    const checkAttrValues = attrValues.every((attr) => attr >= MIN && attr <= MAX);
+    const sumAttr = parseFloat(cardAttr1)
+      + parseFloat(cardAttr2)
+      + parseFloat(cardAttr3)
+      <= SUM;
+
+    const isValid = emptyFields && checkAttrValues && sumAttr;
+    if (isValid) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
   }
 
   render() {
