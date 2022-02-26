@@ -19,6 +19,7 @@ class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -51,6 +52,7 @@ class Form extends Component {
         <TrunfoCheckBox
           cardTrunfo={ cardTrunfo }
           onInputChange={ onInputChange }
+          hasTrunfo={ hasTrunfo }
         />
         <Button
           isSaveButtonDisabled={ isSaveButtonDisabled }
