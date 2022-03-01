@@ -75,12 +75,9 @@ class App extends Component {
 
     const attrValues = [cardAttr1, cardAttr2, cardAttr3];
     const checkAttrValues = attrValues.every((attr) => attr >= MIN && attr <= MAX);
-    const sumAttr = parseFloat(cardAttr1)
-      + parseFloat(cardAttr2)
-      + parseFloat(cardAttr3)
-      <= SUM;
+    const sumAttr = attrValues.reduce((soma, i) => (parseInt(soma) + parseInt(i)));
 
-    const isValid = emptyFields && checkAttrValues && sumAttr;
+    const isValid = emptyFields && checkAttrValues && sumAttr <= SUM;
     if (isValid) {
       this.setState({ isSaveButtonDisabled: false });
     } else {
