@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Filter from './components/Filter';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cardList: [],
+      nameFilter: '',
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -108,6 +110,7 @@ class App extends Component {
       hasTrunfo,
       isSaveButtonDisabled,
       cardList,
+      nameFilter,
     } = this.state;
 
     return (
@@ -127,6 +130,7 @@ class App extends Component {
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
+        <Filter onInputChange={ this.onInputChange } />
         <Card
           cardName={ cardName }
           cardDescription={ cardDescription }
@@ -138,20 +142,21 @@ class App extends Component {
           cardTrunfo={ cardTrunfo }
         />
         <div>
-          { cardList.map((el) => (
-            <Card
-              key={ el.cardName }
-              cardName={ el.cardName }
-              cardDescription={ el.cardDescription }
-              cardAttr1={ el.cardAttr1 }
-              cardAttr2={ el.cardAttr2 }
-              cardAttr3={ el.cardAttr3 }
-              cardImage={ el.cardImage }
-              cardRare={ el.cardRare }
-              cardTrunfo={ el.cardTrunfo }
-              delButton={ () => this.delButton(el.cardName) }
-            />
-          ))}
+          { cardList.filter((el) => el.cardName.includes(nameFilter))
+            .map((el) => (
+              <Card
+                key={ el.cardName }
+                cardName={ el.cardName }
+                cardDescription={ el.cardDescription }
+                cardAttr1={ el.cardAttr1 }
+                cardAttr2={ el.cardAttr2 }
+                cardAttr3={ el.cardAttr3 }
+                cardImage={ el.cardImage }
+                cardRare={ el.cardRare }
+                cardTrunfo={ el.cardTrunfo }
+                delButton={ () => this.delButton(el.cardName) }
+              />
+            ))}
         </div>
       </div>
     );
