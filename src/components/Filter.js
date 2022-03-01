@@ -27,6 +27,15 @@ class Filter extends Component {
             { rarity.map((el, i) => <option key={ i }>{el}</option>) }
           </select>
         </label>
+        <label htmlFor="trunfoFilter">
+          Trunfo
+          <input
+            onChange={ onInputChange }
+            data-testid="trunfo-filter"
+            type="checkbox"
+            name="trunfoFilter"
+          />
+        </label>
       </form>
     );
   }

@@ -20,6 +20,7 @@ class App extends Component {
       cardList: [],
       nameFilter: '',
       rareFilter: 'todas',
+      trunfoFilter: false,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -113,6 +114,7 @@ class App extends Component {
       cardList,
       nameFilter,
       rareFilter,
+      trunfoFilter,
     } = this.state;
 
     return (
@@ -147,6 +149,8 @@ class App extends Component {
           { cardList.filter((el) => el.cardName.includes(nameFilter))
             .filter((el) => (rareFilter !== 'todas'
               ? el.cardRare === rareFilter : el))
+            .filter((el) => (trunfoFilter === true
+              ? el.cardTrunfo === true : el))
             .map((el) => (
               <Card
                 key={ el.cardName }
