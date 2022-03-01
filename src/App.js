@@ -75,7 +75,7 @@ class App extends Component {
 
     const attrValues = [cardAttr1, cardAttr2, cardAttr3];
     const checkAttrValues = attrValues.every((attr) => attr >= MIN && attr <= MAX);
-    const sumAttr = attrValues.reduce((soma, i) => (parseFloat(soma) + parseFloat(i)));
+    const sumAttr = attrValues.reduce((acc, cur) => (parseFloat(acc) + parseFloat(cur)));
 
     const isValid = emptyFields && checkAttrValues && sumAttr <= SUM;
     if (isValid) {
@@ -97,6 +97,7 @@ class App extends Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      cardList,
     } = this.state;
 
     return (
@@ -126,6 +127,21 @@ class App extends Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <div>
+          { cardList.map((el) => (
+            <Card
+              key={ el.cardName }
+              cardName={ el.cardName }
+              cardDescription={ el.cardDescription }
+              cardAttr1={ el.cardAttr1 }
+              cardAttr2={ el.cardAttr2 }
+              cardAttr3={ el.cardAttr3 }
+              cardImage={ el.cardImage }
+              cardRare={ el.cardRare }
+              cardTrunfo={ el.cardTrunfo }
+            />
+          ))}
+        </div>
       </div>
     );
   }
