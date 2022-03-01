@@ -19,6 +19,7 @@ class App extends Component {
       isSaveButtonDisabled: true,
       cardList: [],
       nameFilter: '',
+      rareFilter: 'todas',
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -111,6 +112,7 @@ class App extends Component {
       isSaveButtonDisabled,
       cardList,
       nameFilter,
+      rareFilter,
     } = this.state;
 
     return (
@@ -143,6 +145,8 @@ class App extends Component {
         />
         <div>
           { cardList.filter((el) => el.cardName.includes(nameFilter))
+            .filter((el) => (rareFilter !== 'todas'
+              ? el.cardRare === rareFilter : el))
             .map((el) => (
               <Card
                 key={ el.cardName }
