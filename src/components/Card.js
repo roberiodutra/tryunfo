@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DeleteButton from './DeleteButton';
 
 class Card extends Component {
   render() {
@@ -12,6 +13,7 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      delButton,
     } = this.props;
 
     return (
@@ -24,6 +26,7 @@ class Card extends Component {
         <span data-testid="attr3-card">{cardAttr3}</span>
         <span data-testid="rare-card">{cardRare}</span>
         {cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>}
+        {delButton && <DeleteButton delButton={ delButton } />}
       </div>
     );
   }
@@ -38,6 +41,7 @@ Card.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
+  delButton: PropTypes.bool,
 }.isRequired;
 
 export default Card;

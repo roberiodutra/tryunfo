@@ -22,6 +22,7 @@ class App extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
     this.validate = this.validate.bind(this);
+    this.delButton = this.delButton.bind(this);
   }
 
   onInputChange({ target: { name, value, type, checked } }) {
@@ -42,7 +43,7 @@ class App extends Component {
       cardRare: '',
       cardTrunfo: false,
       hasTrunfo: state.cardTrunfo === true
-        || state.cardList.some((item) => item.cardTrunfo === true),
+        || state.cardList.some((el) => el.cardTrunfo === true),
       cardList: [...state.cardList,
         {
           cardName: state.cardName,
@@ -83,6 +84,15 @@ class App extends Component {
     } else {
       this.setState({ isSaveButtonDisabled: true });
     }
+  }
+
+  delButton(cardName) {
+    const { cardList } = this.state;
+    this.setState((state) => ({
+      cardList: cardList.filter((el) => el.cardName !== cardName),
+      hasTrunfo: state.cardList.filter((el) => el.cardName !== cardName)
+        .some((el) => el.cardTrunfo === true),
+    }));
   }
 
   render() {
@@ -139,6 +149,7 @@ class App extends Component {
               cardImage={ el.cardImage }
               cardRare={ el.cardRare }
               cardTrunfo={ el.cardTrunfo }
+              delButton={ () => this.delButton(el.cardName) }
             />
           ))}
         </div>
