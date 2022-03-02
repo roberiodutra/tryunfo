@@ -80,7 +80,7 @@ class App extends Component {
 
     const attrValues = [cardAttr1, cardAttr2, cardAttr3];
     const checkAttrValues = attrValues.every((attr) => attr >= MIN && attr <= MAX);
-    const sumAttr = attrValues.reduce((acc, cur) => (parseFloat(acc) + parseFloat(cur)));
+    const sumAttr = attrValues.reduce((acc, cur) => Number(acc) + Number(cur));
 
     const isValid = emptyFields && checkAttrValues && sumAttr <= SUM;
     if (isValid) {
